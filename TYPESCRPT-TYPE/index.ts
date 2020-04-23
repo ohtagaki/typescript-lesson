@@ -118,3 +118,15 @@ let banana = 'banana';
 banana = anything;
 //any型に関しては、型チェックを行わない = JavaScriptの世界
 //基本的にany型は極力使わない
+
+
+//Union型
+//複数の型を入れられる
+//格納されている型によってエラーが出たり出なかったりする
+let unionType: number | string = 10;
+//number型のためエラー
+//unionType.toUpperCase();
+unionType = 'aaaaaa';
+unionType.toUpperCase();
+//配列の場合
+let unionTypes: (number | string)[] = [10, 'genius'];
