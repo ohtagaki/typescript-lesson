@@ -69,7 +69,7 @@ const infant = {
 //配列の使い方
 //配列に型を付ける
 const fruits:　String[] = ['Apple', 'Banana','Orange'];
-const anything:　any[] = ['Apple', 1, true];
+const anythin:　any[] = ['Apple', 1, true];
 const fruit = fruits[0];
 
 //Tuple型を使って決まった型の配列を使う
@@ -103,3 +103,18 @@ const coffee = {
 }
 //参照可能
 coffee.size = CoffeeSize.VENTI;
+
+
+
+//any型
+//どんな型でも入る・オブジェクトにも追加可能
+let anything: any = true;
+anything = 'hello';
+anything = ['business', 1500, false, 2323, true];
+anything = {};
+anything.kaka = "sjdj";
+//型付けされた変数にもany型の変数を代入できてしまう
+let banana = 'banana';
+banana = anything;
+//any型に関しては、型チェックを行わない = JavaScriptの世界
+//基本的にany型は極力使わない
