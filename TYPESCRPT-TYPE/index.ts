@@ -65,3 +65,41 @@ const infant = {
     },
     age: 5
 }
+
+//配列の使い方
+//配列に型を付ける
+const fruits:　String[] = ['Apple', 'Banana','Orange'];
+const anything:　any[] = ['Apple', 1, true];
+const fruit = fruits[0];
+
+//Tuple型を使って決まった型の配列を使う
+//悪い例
+const badBook = ['business', 1500, false, 2323, true];
+//Tuple型を活用した場合
+const book: [string, number,boolean] = ['business', 1500, false];
+//TypeScriptは初期値の型チェックは厳しいが変更する場合は緩い
+//下記のコードはtscのコンパイルを通過する
+//book.push(21);
+
+
+//enum型
+enum CoffeeSize {
+    SHORT = 'short',
+    TALL  = 'tall',
+    GRANDE= 'grande',
+    VENTI = 'venti'
+}
+//明示的に書かなければ数字が勝手に割り振られる
+enum CoffeeMenu {
+    Tea,
+    Moca,
+    Espresso
+}
+const coffee = {
+    hot: true,
+    //sizeはCoffeeSize型
+    //'hello'など文字列に変更できてしまわないように列挙型を使う
+    size: CoffeeSize.TALL
+}
+//参照可能
+coffee.size = CoffeeSize.VENTI;
