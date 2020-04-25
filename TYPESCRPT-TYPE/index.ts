@@ -130,3 +130,31 @@ unionType = 'aaaaaa';
 unionType.toUpperCase();
 //配列の場合
 let unionTypes: (number | string)[] = [10, 'genius'];
+
+
+//Literal型
+//constを用いると型推論で文字列リテラル型を採用する
+const apple =  'apple';
+//union型の文字列リテラル型を使用
+let clothSize: 'small' | 'medium' | 'large' = 'medium';
+const cloth: {
+    color: string,
+    size: 'small' | 'medium' | 'large'
+} = {
+    color: 'white',
+    size: 'large'
+}
+//JSへのコンパイル時にenum型はオブジェクトを生成する
+//union型とリテラル型を組み合わせることでenum型的利用ができる
+
+//ailas型
+type ClothSize = 'small' | 'medium' | 'large';
+let largeSize: ClothSize = 'large';
+
+//関数に型を付ける
+//パラメータには必ず型注釈をつける(付けないとany型になるため)
+//返り値にもなるべく型注釈をつける
+function add(num1: number, num2: number): number{
+    return num1 + num2
+}
+add(3,5);
