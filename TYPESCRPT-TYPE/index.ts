@@ -1,12 +1,4 @@
-//オブジェクトに型を付ける方法
-const person:{
-    name: string;
-    age: number;
-} = {
-    name: 'Jack',
-    age: 21
-}
-console.log(person.age);
+
 
 //object型も存在するが基本的に使用しない
 //object型はobject全般的なものを表す
