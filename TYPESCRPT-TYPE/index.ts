@@ -1,45 +1,3 @@
-//boolean型の活用
-let hasValue: boolean = true;
-let falValue: boolean = false;
-
-
-//number型の活用
-//number型は浮動小数点を取る
-//number型は負の数を取ることも可能 
-let count: number = 10;
-let float: number = 3.14;
-let negativeValue: number = -0.56;
-
-//String型の活用
-let single: string = `hello`;
-let double: string = "hello";
-let backQuart: string = `hello`;
-
-//型が合っているかどうか手っ取り早く確認する方法
-//①変数にマウスカーソルを合わせる
-//VSCodeにTSCが搭載されている
-//tsc(TypeScriptコンパイラ)が型判定している
-
-
-//型注釈と型推論
-//: booleanという記述が無くてもboolean型と見なす
-let expectedValue  = true;
-let expectedCount = 20;
-let expectedFloat = 3.14;
-let expectedNegative = -13.2;
-let expectedSingle = `hello`;
-let expectedDouble = "hello";
-let expectedBackQuart = `hello`;
-
-//基本的には型推論を活用する
-//型推論が出来ない場合に型注釈を活用する
-//①変数を初期化出来ない場合
-//どんな型でも代入可能になってしまう悪例
-let everything;
-everything = 23;
-everything = "Good Night";
-everything = false;
-
 //オブジェクトに型を付ける方法
 const person:{
     name: string;
@@ -158,3 +116,43 @@ function add(num1: number, num2: number): number{
     return num1 + num2
 }
 add(3,5);
+
+//関数の戻り値にvoidを指定する方法
+//voidを指定するとコンパイルした際に、undefined型を返す
+function sayHello(): void{
+    console.log('Hello');
+}
+function sayGoodNight(): undefined{
+    console.log('GoodNight');
+    return;
+}
+console.log(sayHello());
+//undefined型はundefinedとnullを扱える
+let tmp: undefined;
+
+//lesson27
+const anotherAdd:(n1: number, n2: number) => number = function add(num1: number, num2: number): number{
+    return num1 + num2
+};
+//アロー関数
+const doubleNumber: (num: number) => number = num => num * 2;
+
+//callback関数
+function doubleAndHandle(num: number, cb:(num: number) => number): void {
+    const doubleNum = cb(num * 2);
+    console.log(num * 2);
+}
+doubleAndHandle(23, doubleNum => {
+    return doubleNum
+});
+
+
+//unknown型
+let unknownInput: unknown;
+let anyInput: any;
+
+//error型
+function error(message: string) {
+    throw new Error(message);
+  }
+  console.log(error('This is an error'));
