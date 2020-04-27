@@ -1,4 +1,5 @@
 {
+  //コンパイルの方法・設定を記述
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
@@ -62,5 +63,16 @@
 
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
-  }
+  },
+  "include": [
+    "index.ts"
+  ],
+  "exclude": [
+    "**/compiler.ts",
+    "*.spec.ts",
+    "node_modules"
+  ],
+  "files": [
+    "tmp/compiler.ts"
+  ]
 }
