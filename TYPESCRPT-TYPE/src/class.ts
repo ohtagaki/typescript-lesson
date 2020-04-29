@@ -18,15 +18,18 @@
 //ES6以降はClass構文
 //Class…オブジェクトの設計図
 class Person {
-    public name: string;
-    private age: number;
+    //public name: string;
+    //private age: number;
 
+    //lesson49
     //コンストラクタ…オブジェクトを作成する時に実行される関数
     //オブジェクトの初期化
-    constructor(initName: string, initAge: number) {
+
+    //Lesson52 初期化を省略する方法
+    //①フィールドの宣言を消す
+    //②コンストラクタの引数にアクセス修飾子込みでプロパティを設定する
+    constructor(public name: string, private age: number) {
         //this…プロパティの集まりが格納されている
-        this.name = initName;
-        this.age = initAge;
     }
 
     //Lesson51
