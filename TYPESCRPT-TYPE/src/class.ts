@@ -18,12 +18,26 @@
 //ES6以降はClass構文
 //Class…オブジェクトの設計図
 class Person {
-    name: string;
+    public name: string;
+    private age: number;
+
     //コンストラクタ…オブジェクトを作成する時に実行される関数
     //オブジェクトの初期化
-    constructor(initName: string) {
+    constructor(initName: string, initAge: number) {
         //this…プロパティの集まりが格納されている
         this.name = initName;
+        this.age = initAge;
+    }
+
+    //Lesson51
+    //数値を自由に変更できてしまう →　変更しないようにprivate修飾子
+    //privateを付けたプロパティは、Classの外側からアクセスできない(読み込みもできない)
+    //publicを付けたプロパティは、Classの内側でも外側でもアクセス可能
+    //デフォルトでは、publicとなっている
+    //JavaScriptでは、今のところアクセス修飾子という概念はない
+    //実装されうるJSでのprivate・publicの実装方法は異なる
+    incrementAge(){
+        this.age += 1;
     }
 
     //Lesson49 メソッドの追加
@@ -34,7 +48,7 @@ class Person {
     //Lesso50：型としてClassを利用
     //Class内で使用するthis：インスタンスを表している
     greeting(this: Person) {
-        console.log(`Hello! My name is ${this.name}`);
+        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`);
     }
     //Class内でthisを使用すると、当該クラスのインスタンスを示す
 }
@@ -46,15 +60,15 @@ class Person {
 let typePerson: Person;
 
 //インスタンスの生成
-const qUil = new Person('Quil');
+const qUil = new Person('Quil', 34);
+qUil.incrementAge();
 qUil.greeting();
 
 //this：実行された場所(呼び出だれたタイミング)によって値が変化する
-const anotherQUil = {
-    name:'anotherQuil',
+//const anotherQUil = {
     //greetingメソッド内のthisはanotherQUilインスタンスを指す
     //間接的に記述した場合、greetingメソッド内にthisが使われているかどうか不明なのでエラーを吐かない
-    greeting:qUil.greeting
-}
+    //greeting:qUil.greeting
+//}
 //オブジェクトの中のメソッドの中でthisを使用すると、そのオブジェクトを示す
-anotherQUil.greeting();
+//anotherQUil.greeting();
