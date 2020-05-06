@@ -8,9 +8,14 @@
 //Lesson65
 //構造的部分型：intterfaceが持つプロパティを保持しつつ、新たなフィールドを入れてもエラーが出ない
 
+//lesson66
+//readonlyなプロパティnameを持つinterfaceを継承したDeveloperクラスのnameはreadonlyでなくてよい
 
-interface Human {
+interface Nameable{
     name: string;
+}
+
+interface Human extends Nameable {
     age: number;
     //greeting: (message: string) => void;
     greeting (message: string): void;
