@@ -15,7 +15,10 @@ interface Nameable{
     name: string;
 }
 
+//Nameableインタフェースを継承した場合で、nameをHumanインタフェースで指定すると、条件によっては値が上書きされる
+//NameableインタフェースのnameにHumanインタフェースのnameプロパティを代入できるときに値が上書きされる
 interface Human extends Nameable {
+    name: string;
     age: number;
     //greeting: (message: string) => void;
     greeting (message: string): void;
@@ -40,3 +43,20 @@ class Developer implements Human {
 
 //少なくともHuman型のプロパティを備えていることはわかる
 const user: Human = new Developer('Mikel', 35, 5);
+
+//Lesson68インタフェースでも関数の型を表現できる
+//基本的にはtypeを用いて関数の型を表現する
+interface addFunc {
+    //メソッド名を書かない
+    (num1: number, num2: number): number;
+}
+let addFunc: addFunc;
+addFunc = (n1: number, n2: number) => {
+    return n1 + n2;
+}
+
+//type addFunc = (num1: number, num2: number) => number;
+//let addFunc: addFunc;
+//addFunc = (n1: number, n2: number) => {
+    //return n1 + n2;
+//}
