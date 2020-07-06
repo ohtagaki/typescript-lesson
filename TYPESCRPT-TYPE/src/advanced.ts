@@ -8,6 +8,7 @@ interface Blogger {
     follower: number;
 }
 
+//インターセクション型：AかつB
 //name,role,followerの全てがないとダメな型
 //type EngineerBlogger = ENgineer & Blogger
 interface EngineerBlogger extends Engineer, Blogger{}
@@ -33,17 +34,21 @@ function toUpperCase(x: string | number){
 }
 
 type NomadWorker = Engineer | Blogger;
+//typeofは7つの結果しか返さない
 function describeNomadWorkerProfile(nomadWorker: NomadWorker){
     console.log(nomadWorker.name);
     if('role' in nomadWorker){
+        //nomadWorkerがEngineer型になっている
         console.log(nomadWorker.role);
     }
     if('follower' in nomadWorker){
+        //nomadWorkerがBlogger型になっている
         console.log(nomadWorker.follower);
     }
 }
 
 class Dog {
+    //型をリテラル型にする
     kind: 'dog' = 'dog';
     speak(){
         console.log('bow-bow');
@@ -60,6 +65,8 @@ class Bird {
 }
 
 type Pet = Dog | Bird;
+//クラスの型判定の場合はinstanceof演算子も使用可能
+//instance演算子、in演算子はJavaScriptに搭載されている
 function havePet(pet: Pet){
     pet.speak();
     switch(pet.kind){
@@ -71,3 +78,10 @@ function havePet(pet: Pet){
     }
 }
 havePet(new Bird());
+
+//型アサーション：手動で型を上書きする
+//inputタグがあるかどうか判別できないため常にnullabeの状態
+//HTMLELement：インターフェース
+//HTMLELementは抽象的なモノのため具象化したい
+const input = <HTMLInputElement>document.getElementById('input');
+input.value = 'initial input value';
