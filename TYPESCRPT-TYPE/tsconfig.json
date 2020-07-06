@@ -72,7 +72,5 @@
     "*.spec.ts",
     "node_modules"
   ],
-  "files": [
-    "tmp/compiler.ts"
-  ]
+  
 }
