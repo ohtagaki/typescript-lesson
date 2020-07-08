@@ -69,3 +69,75 @@ anything.kaka = "sjdj";
 
 let apple = 'apple';
 apple = anything;
+
+//lesson21 Union型
+let unionType: number | string = 10;
+unionType = 'Hello';
+unionType.toUpperCase();
+
+//配列の場合
+let unionTypes: (number | string)[] = [23, 'genius'];
+
+//lesson22 literal型
+const ringo: 'apple' = 'apple';
+const speNum: number = 30;
+
+type ClothSize = 'small' | 'medium' | 'large';
+let clothSize : ClothSize = 'small';
+const cloth: {
+    color: string;
+    size: ClothSize
+} = {
+    color: 'white',
+    size: clothSize
+}
+
+//lesson24
+
+function add(num1: number , num2: number): number {
+    return num1 + num2;
+}
+add(2, 5);
+
+//lesson25・26
+function sayHello(): void{
+    console.log("Hello");
+}
+console.log(sayHello());
+let tmp: undefined;
+let tmpNull: null = null;
+let tmpNullUnd: null = undefined;
+
+//lesson27
+const anotherAdd:(n1: number, n2: number) => number = function add(num1: number , num2: number): number {
+    return num1 + num2;
+}
+anotherAdd(2, 5);
+
+const doubleNumber = (number: number): number => number * 2;
+const doubleNumberOther: (num: number) => number = num => num * 2;
+
+//lesson28
+function doubleAndHandle(num: number, cb: (num: number) => number): void {
+    const doubleNum = cb(num * 2);
+    console.log(num * 2);
+}
+doubleAndHandle(2, doubleNum => {
+    return doubleNum
+});
+
+//lesson29
+let unknownInput: unknown;
+let anyInput: any;
+let text = 'GoddBye';
+unknownInput = 'Hello';
+unknownInput = 21;
+unknownInput = false;
+//text = unknownInput;
+text = anyInput;
+
+//lesson 30
+function error(message: string): never{
+    throw new Error(message);
+}
+console.log(error("This is an error."));
