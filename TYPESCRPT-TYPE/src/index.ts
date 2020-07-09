@@ -106,7 +106,7 @@ function sayHello(): void{
 console.log(sayHello());
 let tmp: undefined;
 let tmpNull: null = null;
-let tmpNullUnd: null = undefined;
+//let tmpNullUnd: null = undefined;
 
 //lesson27
 const anotherAdd:(n1: number, n2: number) => number = function add(num1: number , num2: number): number {
