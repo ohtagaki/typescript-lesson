@@ -1,11 +1,7 @@
 class Person {
-    public name: string;
-    private age: number;
 
-    constructor(initName: string, initAge: number) {
+    constructor(public name: string, private age: number) {
         //初期化
-        this.name = initName;
-        this.age = initAge;
     }
 
     greeting(this: Person){
