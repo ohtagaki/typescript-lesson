@@ -30,7 +30,21 @@ console.log(mike.id);
 
 //継承
 class Teacher extends Person{
-    constructor(name: string, age: number, public subject: string){
+    get subject(): string {
+        if(!this._subject){
+            throw new Error('This is no subject.');
+        }
+        return this._subject;
+    }
+
+    set subject(value: string) {
+        if(!value){
+            throw new Error('This is no subject.');
+        }
+        this._subject = value;
+    }
+
+    constructor(name: string, age: number, private _subject: string){
         super(name, age);
     }
 
@@ -39,4 +53,6 @@ class Teacher extends Person{
     }
 }
 const mathTeacher = new Teacher('Mori', 23, 'math');
+console.log(mathTeacher.subject);
+mathTeacher.subject = 'Mathmathics';
 mathTeacher.greeting();
