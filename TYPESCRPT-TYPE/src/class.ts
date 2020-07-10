@@ -38,6 +38,7 @@ let person2: Person;
 
 //継承
 class Teacher extends Person{
+    private static instance: Teacher;
     explainJob(){
         console.log(`I am a teacher and I teach ${this.subject}.`)
     }
@@ -56,12 +57,20 @@ class Teacher extends Person{
         this._subject = value;
     }
 
-    constructor(name: string, age: number, private _subject: string){
+    private constructor(name: string, age: number, private _subject: string){
         super(name, age);
     }
 
+    static getInstance(){
+        if(Teacher.instance){
+            return Teacher.instance;
+        }
+        Teacher.instance = new Teacher('Mori', 23, 'math');
+        return Teacher.instance;
+    }
+
 }
-const mathTeacher = new Teacher('Mori', 23, 'math');
+const mathTeacher = Teacher.getInstance();
 console.log(mathTeacher.subject);
 mathTeacher.subject = 'Mathmathics';
 mathTeacher.greeting();
