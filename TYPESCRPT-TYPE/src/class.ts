@@ -1,4 +1,9 @@
 class Person {
+    static species = 'Homo sapiens';
+    static isAdult(age: number) {
+        if(age >= 18) return true;
+        return false;
+    }
 
     readonly id: number = 32;
     constructor(readonly name: string, protected age: number) {
@@ -56,3 +61,8 @@ const mathTeacher = new Teacher('Mori', 23, 'math');
 console.log(mathTeacher.subject);
 mathTeacher.subject = 'Mathmathics';
 mathTeacher.greeting();
+
+console.log(Person.species);
+console.log(Person.isAdult(20));
+console.log(Teacher.species);
+console.log(Teacher.isAdult(35));
