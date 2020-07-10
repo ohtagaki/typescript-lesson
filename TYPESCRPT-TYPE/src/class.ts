@@ -1,4 +1,4 @@
-class Person {
+abstract class Person {
     static species = 'Homo sapiens';
     static isAdult(age: number) {
         if(age >= 18) return true;
@@ -14,18 +14,21 @@ class Person {
 
     greeting(this: Person){
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`);
+        this.explainJob();
     }
+    abstract explainJob(): void;
 
     incrementAge(){
         this.age += 1;
     }
+
 }
 let person2: Person;
-const mike = new Person('Mike', 24);
-console.log(mike);
-mike.incrementAge();
-mike.greeting();
-console.log(mike.id);
+// const mike = new Person('Mike', 24);
+// console.log(mike);
+// mike.incrementAge();
+// mike.greeting();
+// console.log(mike.id);
 
 // const anotherMike = {
 //     name: 'anotherMike',
@@ -35,6 +38,10 @@ console.log(mike.id);
 
 //継承
 class Teacher extends Person{
+    explainJob(){
+        console.log(`I am a teacher and I teach ${this.subject}.`)
+    }
+
     get subject(): string {
         if(!this._subject){
             throw new Error('This is no subject.');
@@ -53,9 +60,6 @@ class Teacher extends Person{
         super(name, age);
     }
 
-    greeting(){
-        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}.`);
-    }
 }
 const mathTeacher = new Teacher('Mori', 23, 'math');
 console.log(mathTeacher.subject);
@@ -66,3 +70,5 @@ console.log(Person.species);
 console.log(Person.isAdult(20));
 console.log(Teacher.species);
 console.log(Teacher.isAdult(35));
+
+mathTeacher.greeting();
