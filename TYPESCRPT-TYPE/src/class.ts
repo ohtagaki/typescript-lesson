@@ -1,10 +1,9 @@
 class Person {
 
     readonly id: number = 32;
-    constructor(public readonly name: string, private age: number) {
+    constructor(readonly name: string, protected age: number) {
         //初期化
         this.id = 31;
-        this.name = 'hiroki';
         this.id = 30;
     }
 
@@ -28,3 +27,16 @@ console.log(mike.id);
 //     greeting: mike.greeting
 // }
 // anotherMike.greeting();
+
+//継承
+class Teacher extends Person{
+    constructor(name: string, age: number, public subject: string){
+        super(name, age);
+    }
+
+    greeting(){
+        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}.`);
+    }
+}
+const mathTeacher = new Teacher('Mori', 23, 'math');
+mathTeacher.greeting();
