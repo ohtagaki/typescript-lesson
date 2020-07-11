@@ -20,3 +20,5 @@ class Developer implements Human {
         console.log(message);
     }
 }
+
+const engineer: Human = new Developer('Mike', 35, 5);
