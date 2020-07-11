@@ -1,5 +1,5 @@
 interface Human {
-    name: string;
+    readonly name: string;
     age: number;
     greeting(message: string): void;
 } 
@@ -21,4 +21,4 @@ class Developer implements Human {
     }
 }
 
-const engineer: Human = new Developer('Mike', 35, 5);
+let engineer: Human = new Developer('Mike', 35, 5);
