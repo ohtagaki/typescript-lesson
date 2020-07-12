@@ -51,12 +51,16 @@ function describeNomadWorkerProfile(nomadWorker: NomadWorker) {
 }
 
 class Dog {
+    //タグ付きUnion
+    kind: 'dog' = 'dog';
     speak() {
         console.log('bow-bow');
     }
 }
 
 class Bird {
+    //タグ付きUnion
+    kind: 'bird' = 'bird';
     speak() {
         console.log('tweet-tweet');
     }
@@ -68,6 +72,10 @@ class Bird {
 type Pet = Dog | Bird;
 function havePet(pet: Pet) {
     pet.speak();
+    switch (pet.kind) {
+        case 'bird':
+            pet.fly();
+    }
     //instanceof：生成されたインスタンスがどのclass(設計図)から生成されたかをcheckする
     //もともと、JavaScriptに搭載されている
     if(pet instanceof Bird){
