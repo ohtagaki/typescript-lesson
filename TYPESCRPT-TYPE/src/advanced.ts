@@ -83,3 +83,10 @@ function havePet(pet: Pet) {
     }
 }
 havePet(new Bird());
+
+//lesson75
+//型アサーション
+const input = <HTMLInputElement>document.getElementById('input');
+input.value = 'initial input value';
+const input2 = <HTMLInputElement>document.getElementById('input') as HTMLInputElement;
+input2.value = 'initial2';
