@@ -91,3 +91,14 @@ const input = <HTMLInputElement>document.getElementById('input')!;
 input.value = 'initial input value';
 const input2 = <HTMLInputElement>document.getElementById('input') as HTMLInputElement;
 input2.value = 'initial2';
+
+//lesson77
+interface Designer {
+    name: string;
+    [index: string]: string;
+}
+const designer: Designer = {
+    name: `Quil`,
+    role: 'web'
+}
+console.log(designer);
