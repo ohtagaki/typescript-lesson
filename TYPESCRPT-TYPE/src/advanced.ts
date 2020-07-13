@@ -26,13 +26,17 @@ type stringNumber = string | number;
 type mixType = numberBoolean & stringNumber;
 
 //lesson73
+function toUpperCase(x : string): string;
+function toUpperCase(x : number): number;
 function toUpperCase(x : string | number) {
     if(typeof x === 'string') {
         return x.toUpperCase();
     }else{
-        return '';
+        return x;
     }
 }
+const upperHello = toUpperCase('hello');
+
 
 type NomadWorker = Engineer | Blogger;
 function describeNomadWorkerProfile(nomadWorker: NomadWorker) {
@@ -102,3 +106,4 @@ const designer: Designer = {
     role: 'web'
 }
 console.log(designer);
+
