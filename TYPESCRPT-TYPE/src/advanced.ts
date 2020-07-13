@@ -107,3 +107,17 @@ const designer: Designer = {
 }
 console.log(designer);
 
+//lesson79
+interface DownloadData {
+    id: number;
+    user?: {
+        name?: {
+            first: string;
+            last: string;
+        }
+    }
+}
+const downloadData: DownloadData = {
+    id: 1
+}
+console.log(downloadData.user?.name?.first);
