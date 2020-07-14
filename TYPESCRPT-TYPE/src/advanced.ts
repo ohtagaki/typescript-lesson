@@ -190,3 +190,9 @@ target4 = source4;
 //lesson83 
 //型の安全性：割と柔軟な部分もある
 //ドキュメントを読みましょう
+
+//lesson87
+function advancedFn(...args: [number, string, boolean?, ...number[]]) {
+
+}
+advancedFn(0, 'h1', true);
