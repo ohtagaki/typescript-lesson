@@ -121,3 +121,7 @@ const downloadData: DownloadData = {
     id: 1
 }
 console.log(downloadData.user?.name?.first);
+
+//lesson80 
+// | と ?? との違い：空文字列の扱い方が異なる
+const userData = downloadData.user ?? 'no-user';
