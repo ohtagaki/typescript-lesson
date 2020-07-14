@@ -45,15 +45,24 @@ interface TmpFunc {
 }
 const upperHello2: TmpFunc = function(x: string | number) {return 0};
 
+// interface funcA {
+//     (a: number, b:string): number;
+//     (a: string, b:number): number;
+// }
+// interface funcB {
+//     (a: string): number;
+// }
+// let intersectionFunc: funcA & funcB;
+// intersectionFunc = function(a: number | string, b?: number | string) {return 0};
+
 interface funcA {
-    (a: number, b:string): number;
-    (a: string, b:number): number;
+    (a: number): number;
 }
 interface funcB {
-    (a: string): number;
+    (a: string): string;
 }
-let intersectionFunc: funcA & funcB;
-intersectionFunc = function(a: number | string, b?: number | string) {return 0};
+let unionFunc: funcA | funcB;
+unionFunc = function(a: number) {return 34};
 
 
 type NomadWorker = Engineer | Blogger;
