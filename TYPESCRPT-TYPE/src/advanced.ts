@@ -196,3 +196,10 @@ function advancedFn(...args: [number, string, boolean?, ...number[]]) {
 
 }
 advancedFn(0, 'h1', true);
+
+//lesson88
+//argsが書き換えられなくなる
+function advancedFn2(...args: readonly number[]) {
+
+}
+advancedFn2(0, 1);
