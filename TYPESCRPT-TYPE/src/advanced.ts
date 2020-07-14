@@ -203,3 +203,18 @@ function advancedFn2(...args: readonly number[]) {
 
 }
 advancedFn2(0, 1);
+
+//lesson89 
+let milk = 'milk' as const;
+let drink = milk;
+//Tuple型となっている(Readonly修飾子も付いている)
+const array = [10, 20] as const;
+//Classに
+const peter = {
+    name: 'Peter',
+    age: 38
+}as const;
+
+//lesson90
+//値の型を取得する
+type PeterType = typeof peter;
