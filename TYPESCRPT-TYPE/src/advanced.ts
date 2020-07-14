@@ -125,3 +125,41 @@ console.log(downloadData.user?.name?.first);
 //lesson80 
 // | と ?? との違い：空文字列の扱い方が異なる
 const userData = downloadData.user ?? 'no-user';
+
+//lesson81
+type id = DownloadData["id"];
+
+let target: string = 'hello'
+let source: 'hello' = 'hello'
+//source = target;
+
+//enum型とnumber型には互換性がある
+//enum型同士には互換性がない
+enum Color {
+    RED,
+    BLUE
+}
+let target2 = Color.RED;
+let source2 = 100;
+source2 = target2;
+
+let target3 = function (a: string, b:string) {}
+let source3 = function (a: string) {}
+target3 = source3;
+target3('h1', 'hello');
+
+class AdavancedPerson {
+    name: string = 'Peter'
+     age: number = 35;
+}
+class AdavancedCar {
+    name: string = 'Ford'
+    age: number = 5;
+}
+let target4 = new AdavancedPerson;
+let source4 = new AdavancedCar;
+target4 = source4;
+
+//lesson83 
+//型の安全性：割と柔軟な部分もある
+//ドキュメントを読みましょう
