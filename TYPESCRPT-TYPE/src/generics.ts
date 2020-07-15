@@ -41,3 +41,20 @@ const tmpDatabase: TmpDatabase<number> = {
     id: 32,
     data: [35]
 }
+
+interface Todo {
+    title: string;
+    text: string;
+}
+type Todoable = Partial<Todo>
+type ReadTodo = Readonly<Todo>
+
+const fetchData: Promise<string> = new Promise(resolve => {
+    setTimeout(() => {
+        resolve('hello');
+    }, 3000);
+})
+fetchData.then(data => {
+    data.toUpperCase();
+})
+const vegetables: Array<string> = ['Tomato', 'Apple', 'Banana'];
