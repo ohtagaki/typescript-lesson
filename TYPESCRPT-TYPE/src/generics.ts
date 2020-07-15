@@ -58,3 +58,19 @@ fetchData.then(data => {
     data.toUpperCase();
 })
 const vegetables: Array<string> = ['Tomato', 'Apple', 'Banana'];
+
+interface ResopnseData<T extends{message: string} = any> {
+    data: T;
+    status: number;
+}
+let tmp2: ResopnseData;
+
+//lesson100
+interface Vegetables {
+    readonly tomato: string;
+    pumpkin?: string;
+}
+let tmp3: keyof Vegetables;
+type MappedTypes = {
+   -readonly [P in keyof Vegetables]-?: string
+}
